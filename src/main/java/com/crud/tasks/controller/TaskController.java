@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/v1/task" )
+@RequestMapping("/v1/task")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 
@@ -23,12 +23,12 @@ public class TaskController {
     private final TaskMapper taskMapper;
 
 
-
     @RequestMapping(method = RequestMethod.GET, value = "getTasks")
     public List<TaskDto> getTasks() {
         List<Task> tasks = service.getAllTasks();
         return taskMapper.mapToTaskDtoList(tasks);
     }
+
     @GetMapping("getTask/{id}")
     public TaskDto getTask(@PathVariable Long id) throws TaskNotFoundException {
         return taskMapper.mapToTaskDto(
@@ -36,13 +36,14 @@ public class TaskController {
 
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value ="deleteTask/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask/{id}")
     public void deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
 
     }
+
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
-    public TaskDto updateTask(@ RequestBody TaskDto taskDto) {
+    public TaskDto updateTask(@RequestBody TaskDto taskDto) {
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = service.saveTask(task);
         return taskMapper.mapToTaskDto(savedTask);
@@ -51,7 +52,7 @@ public class TaskController {
     @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createTask(@RequestBody TaskDto taskDto) {
         Task task = taskMapper.mapToTask(taskDto);
-         service.saveTask(task);
+        service.saveTask(task);
 
     }
 
