@@ -46,6 +46,8 @@ public class TrelloClientTest {
 
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
         // When
+
+
         List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
 
 
