@@ -12,11 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/trello")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class TrelloController {
 
     private final TrelloClient trelloClient;
 
-    @GetMapping("getTrelloBoards")
+    @GetMapping("/getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
 
         return trelloClient.getTrelloBoards();
