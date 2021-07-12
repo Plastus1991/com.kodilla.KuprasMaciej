@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+
+	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
@@ -34,12 +36,12 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'mysql:mysql-connector-java'
-	//runtimeOnly 'org.postgresql:postgresql'
+	//runtimeOnly 'mysql:mysql-connector-java'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+   //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 
 
