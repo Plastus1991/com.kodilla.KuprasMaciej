@@ -2,9 +2,11 @@ package com.crud.tasks.domain;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.mail.SimpleMailMessage;
 
+@Builder
 @Getter
 @AllArgsConstructor
 public class Mail {
